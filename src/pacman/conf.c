@@ -513,6 +513,8 @@ static int _parse_options(const char *key, char *value,
 			setrepeatingoption(value, "IgnoreGroup", &(config->ignoregrp));
 		} else if(strcmp(key, "HoldPkg") == 0) {
 			setrepeatingoption(value, "HoldPkg", &(config->holdpkg));
+		} else if(strcmp(key, "ConnectionTimeout") == 0) {
+			config->connecttimeout = atoi(value);
 		} else if(strcmp(key, "CacheDir") == 0) {
 			setrepeatingoption(value, "CacheDir", &(config->cachedirs));
 		} else if(strcmp(key, "HookDir") == 0) {
@@ -739,6 +741,10 @@ static int setup_libalpm(void)
 		alpm_option_set_totaldlcb(handle, cb_dl_total);
 	}
 
+	if(!config->connecttimeout) {
+		alpm_option_set_connecttimeout(handle, 10L);
+	}
+
 	alpm_option_set_arch(handle, config->arch);
 	alpm_option_set_checkspace(handle, config->checkspace);
 	alpm_option_set_usesyslog(handle, config->usesyslog);
@@ -749,6 +755,7 @@ static int setup_libalpm(void)
 	alpm_option_set_noextracts(handle, config->noextract);
 
 	alpm_option_set_disable_dl_timeout(handle, config->disable_dl_timeout);
+	alpm_option_set_connecttimeout(handle, config->connecttimeout);
 
 	for(i = config->assumeinstalled; i; i = i->next) {
 		char *entry = i->data;

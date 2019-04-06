@@ -890,6 +890,9 @@ int alpm_option_set_remote_file_siglevel(alpm_handle_t *handle, int level);
 
 int alpm_option_set_disable_dl_timeout(alpm_handle_t *handle, unsigned short disable_dl_timeout);
 
+/** Sets the timeout for the curl connect phase. */
+int alpm_option_set_connecttimeout(alpm_handle_t *handle, unsigned int timeout);
+
 /** @} */
 
 /** @addtogroup alpm_api_databases Database Functions

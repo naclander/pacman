@@ -258,7 +258,7 @@ static void curl_set_handle_opts(struct dload_payload *payload,
 	curl_easy_reset(curl);
 	curl_easy_setopt(curl, CURLOPT_URL, payload->fileurl);
 	curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, error_buffer);
-	curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 10L);
+ 	curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, handle->connecttimeout);
 	curl_easy_setopt(curl, CURLOPT_MAXREDIRS, 10L);
 	curl_easy_setopt(curl, CURLOPT_FILETIME, 1L);
 	curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 0L);

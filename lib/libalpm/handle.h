@@ -103,6 +103,7 @@ struct __alpm_handle_t {
 	                                       upgrade operations */
 	int remotefilesiglevel;  /* Signature verification level for remote file
 	                                       upgrade operations */
+	unsigned int connecttimeout; /* timeout for the connect phase  */
 
 	/* error code */
 	alpm_errno_t pm_errno;

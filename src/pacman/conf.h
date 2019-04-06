@@ -118,6 +118,7 @@ typedef struct __config_t {
 	/* select -Sc behavior */
 	unsigned short cleanmethod;
 	alpm_list_t *holdpkg;
+	unsigned int connecttimeout;
 	alpm_list_t *ignorepkg;
 	alpm_list_t *ignoregrp;
 	alpm_list_t *assumeinstalled;

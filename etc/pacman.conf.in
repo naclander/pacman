@@ -34,6 +34,7 @@ Architecture = auto
 #TotalDownload
 CheckSpace
 #VerbosePkgLists
+#ConnectionTimeout = 10
 
 # PGP signature checking
 #SigLevel = Optional

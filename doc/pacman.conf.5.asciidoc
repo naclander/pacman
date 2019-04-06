@@ -205,6 +205,9 @@ Options
 	Disable defaults for low speed limit and timeout on downloads. Use this
 	if you have issues downloading files with proxy and/or security gateway.
 
+*ConnectionTimeout*::
+	Set the amount of time trying to connect to a repository, before timnig
+	out and trying the next one.
 
 Repository Sections
 -------------------
